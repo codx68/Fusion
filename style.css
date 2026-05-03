@@ -1,0 +1,881 @@
+:root {
+  --bordeaux: #4A0E1A;
+  --bordeaux-dark: #2A060D;
+  --silver: #C9C9C9;
+  --silver-soft: #E5E5E5;
+  --bg: #0A0A0A;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--silver-soft);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 80px;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--silver);
+}
+
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: var(--silver);
+  position: relative;
+}
+
+/* NAV HOVER LINE */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -5px;
+  left: 0;
+  background: var(--bordeaux);
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 70px;
+  color: var(--silver);
+  letter-spacing: -2px;
+}
+
+.hero p {
+  margin: 25px 0;
+  color: var(--silver);
+}
+
+/* BUTTON */
+button {
+  padding: 14px 30px;
+  background: transparent;
+  border: 1px solid var(--silver);
+  color: var(--silver);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  background: var(--bordeaux);
+  border-color: var(--bordeaux);
+}
+
+/* SECTION */
+section {
+  padding: 100px 80px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.card {
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--bordeaux);
+}
+
+/* DARK SECTION */
+.dark {
+  background: var(--bordeaux-dark);
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+}
+
+/* FADE ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  filter: blur(8px);
+  transition: 
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+}
+
+/* LOADER */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #0A0A0A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader h1 {
+  font-family: 'Playfair Display', serif;
+  color: #C9C9C9;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #C9C9C9;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+  z-index: 999;
+}
+
+/* CURSOR HOVER EFFECT */
+a:hover ~ .cursor,
+button:hover ~ .cursor {
+  transform: translate(-50%, -50%) scale(1.8);
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #4A0E1A;
+  width: 0%;
+  z-index: 999;
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* FOOTER */
+.footer {
+  background: #050505;
+  padding: 80px 20px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--silver);
+}
+
+.footer-text {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 30px;
+}
+
+.footer-links {
+  margin-bottom: 30px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--silver);
+  font-size: 14px;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background: var(--bordeaux);
+  transition: 0.3s;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-social {
+  margin-bottom: 25px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  border: 1px solida var(--silver);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--silver);
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  background: var(--bordeaux);
+  border-color: var(--bordeaux);
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-copy a {
+  color: var(--silver);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.footer-copy a:hover {
+  color: white;
+  border-bottom: 1px solid var(--bordeaux);
+}
+
+.footer-copy a {
+  opacity: 0.6;
+}
+
+.footer-copy a:hover {
+  opacity: 1;
+}
+
+.services {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.services h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.card {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: white;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* hover effect */
+.start-btn:hover {
+  background: white;
+  color: black;
+}
+
+.start-btn {
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.start-btn:hover {
+  background: var(--bordeaux);
+  border-color: var(--bordeaux);
+  color: white;
+}
+
+.card {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* Main section */
+h1 {
+  text-align: center;
+  font-size: 48px;
+  margin-top: 60px;
+}
+
+/* Paragraph box (THIS is the upgrade) */
+p {
+  max-width: 700px;
+  margin: 30px auto;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #ccc;
+  text-align: center;
+}
+
+/* Button */
+.start-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 80px;
+  padding: 14px 40px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Footer */
+.footer {
+  background: #000;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: #777;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.info-box {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+.info-box {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+.info-box p {
+  margin-bottom: 18px;
+  line-height: 1.8;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.info-box strong {
+  color: white;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 60px;
+  background: #5a0008;
+}
+
+.project-card {
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Hover effect (THIS is the magic) */
+.project-card:hover {
+  background: white;
+  color: black;
+  transform: translateY(-10px);
+}
+
+.cta {
+  text-align: center;
+  padding: 120px 20px;
+  background: #000;
+}
+
+.cta h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta span {
+  border-bottom: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  color: black;
+}
+
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  background: #000;
+}
+
+.footer-logo {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.footer-copy {
+  color: #666;
+  font-size: 14px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.footer a:hover {
+  border-bottom: 1px solid white;
+}
+
+* {
+  transition: all 0.3s ease;
+}
+
+.section-box {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 60px 40px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+
+  border-radius: 8px;
+}
+
+.section-box:hover {
+  border-color: var(--bordeaux);
+  box-shadow: 0 0 40px rgba(74, 14, 26, 0.3);
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.logo {
+  padding: 20px;
+  font-size: 24px;
+}
+
+.project-section {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.project-box {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.03);
+  line-height: 1.8;
+  border-radius: 10px;
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 1px solid white;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background: white;
+  color: black;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Section */
+.project-section {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+/* Title */
+.project-section h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+/* Box */
+.project-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #0a0a0a;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+/* Button */
+.start-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.start-btn {
+  display: block;              /* change from inline-block */
+  margin: 30px auto 0;         /* auto centers it */
+  padding: 12px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  width: fit-content;          /* keeps button size tight */
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  margin: 10px 0;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+.contact-section textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-section button {
+  margin-top: 15px;
+  padding: 12px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-section button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.contact-links {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #aaa;
+  border: 1px solid #555;
+  padding: 10px 20px;
+  transition: 0.3s;
+}
+
+.contact-links a:hover {
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-3px);
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #aaa;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #fff;
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.about-section h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.about-sub {
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.about-box {
+  max-width: 700px;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 40px;
+  line-height: 1.8;
+  color: #ccc;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+.about-box p {
+  margin-bottom: 20px;
+}
+
+.about-cta {
+  margin-top: 40px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better font feel */
+body {
+  background: #0a0a0a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* Container spacing (feels more premium) */
+section {
+  padding: 80px 20px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.2);
+}
