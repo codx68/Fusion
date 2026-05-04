@@ -879,3 +879,56 @@ section {
   transform: translateY(-6px);
   border-color: rgba(255,255,255,0.2);
 }
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  /* Hero Title */
+  h1 {
+    font-size: 32px !important;
+    line-height: 1.2;
+  }
+
+  /* Paragraph text */
+  p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  /* Navbar */
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Buttons */
+  .btn, button {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px;
+  }
+
+  /* Sections spacing */
+  section {
+    padding: 40px 20px;
+  }
+
+  /* Cards / Boxes */
+  .box, .card, .service-box {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  /* Grid layouts */
+  .grid, .services, .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+}
