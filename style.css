@@ -932,3 +932,64 @@ section {
     padding: 20px;
   }
 }
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+  body {
+    padding: 0 20px;
+  }
+
+  .contact-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* center vertically */
+    text-align: center;
+  }
+
+  .contact-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .social-buttons a {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}
